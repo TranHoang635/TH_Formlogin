@@ -25,5 +25,31 @@ namespace TH_Formlogin
 
 
         }
+
+        private void mnuLogout_Click(object sender, EventArgs e)
+        {
+            Cls_Main._staticUser = null;
+            Frm_Login frm_Login = new Frm_Login();
+            frm_Login.ShowDialog();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void mnuChangedPassword_Click(object sender, EventArgs e)
+        {
+            Frm_ChangedPassword frm_ChangedPassword = new Frm_ChangedPassword();
+            frm_ChangedPassword.MdiParent = this;
+            frm_ChangedPassword.StartPosition = FormStartPosition.CenterScreen;
+            frm_ChangedPassword.Show();
+            
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

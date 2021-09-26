@@ -46,10 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ckbRemember\Checked.cs" />
     <Compile Include="Cls_Main.cs" />
     <Compile Include="Data\User.cs" />
     <Compile Include="Data\UserDao.cs" />
+    <Compile Include="Frm_ChangedPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_ChangedPassword.Designer.cs">
+      <DependentUpon>Frm_ChangedPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +69,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frm_ChangedPassword.resx">
+      <DependentUpon>Frm_ChangedPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,6 +86,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -91,6 +100,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\logout_rounded_left_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\home_page_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\system_diagnostic_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\password_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\user_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\password_3px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

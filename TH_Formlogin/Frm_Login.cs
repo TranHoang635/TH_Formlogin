@@ -18,11 +18,10 @@ namespace TH_Formlogin
             InitializeComponent();
         }
         private UserDao _user;
-        private object ckbRemember;
-
+        private List<User> listUser;
         private void Frm_Login_Load(object sender, EventArgs e)
         {
-            _user = new UserDao();
+            listUser = Cls_Main._listUser;
             
         }
 
@@ -42,8 +41,7 @@ namespace TH_Formlogin
                    if( KiemTraDangNhap(txtUserName.Text, txtPassWord.Text))
                     {
                         //kiemtrabiennho
-                        _user.user.Remember = ckbRemember.Checked;
-                        Cls_Main._staticUser = _user.user;
+                        //
                         this.Close();
                     }
                    else
@@ -56,10 +54,15 @@ namespace TH_Formlogin
 
         private bool KiemTraDangNhap(string userName, string passWord)
         {
-            if(_user.user.UserName.Equals(userName)&&
-                _user.user.PassWord.Equals(passWord))
+            foreach (User item in listUser)
             {
-                return true;
+                if (item.UserName.Equals(userName) &&
+                     item.PassWord.Equals(passWord))
+                {
+                    item.Remember = ckbRemember.Checked;
+                    Cls_Main._staticUser = item;
+                    return true;
+                }
             }
             return false;
         }
@@ -81,12 +84,15 @@ namespace TH_Formlogin
 
         private void txtUserName_Leave(object sender, EventArgs e)
         {
-            if(_user.user.Remember)
-            {
-                ckbRemember.Checked = true;
+            foreach (User item in listUser)
+            { 
+                if (item.UserName==txtUserName.Text && item.Remember)
+                {
+                    ckbRemember.Checked = true;
 
-                txtPassWord.Text = _user.user.PassWord;
-                btnLogin.Focus();
+                    txtPassWord.Text = item.PassWord;
+                    btnLogin.Focus();
+                }
             }
         }
     }

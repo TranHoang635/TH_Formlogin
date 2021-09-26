@@ -10,5 +10,6 @@ namespace TH_Formlogin
     public class Cls_Main
     {
         public static User _staticUser = new User();
+        public static List<User> _listUser = new UserDao().listUser;
     }
 }
